@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Fullstack Test API
 
 Este proyecto es una aplicación fullstack que consta de un backend desarrollado en Ruby on Rails y un frontend desarrollado en Angular. A continuación, se describen las características principales de cada parte del proyecto.
