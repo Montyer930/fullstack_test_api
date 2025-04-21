@@ -256,7 +256,7 @@ Este proyecto es una API diseñada para manejar autenticación y productos, idea
 
 1. Clona este repositorio:
    ```bash
-   git clone <URL_DEL_REPOSITORIO>
+   git clone https://github.com/Montyer930/fullstack_test_api
    cd fullstack_test_api
    ```
 
