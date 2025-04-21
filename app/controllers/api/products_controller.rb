@@ -1,12 +1,12 @@
 module Api
   class ProductsController < ApplicationController
-    before_action :set_product, only: [:show]
-
+    before_action :set_product, only: [:show, :update, :destroy]
+    # GET /products
     def index
       products = Product.all
       render json: products
     end
-
+    # POST /products
     def create
       product = @current_user.products.build(product_params)
       if product.save
@@ -15,12 +15,13 @@ module Api
         render json: { errors: product.errors.full_messages }, status: :unprocessable_entity
       end
     end
-
+    # GET /products/:id
     def show
       render json: @product
     end
-
+    # PATCH/PUT /products/:id
     def update
+      return unless @product
       if @product.update(product_params)
         render json: @product
       else
@@ -28,6 +29,7 @@ module Api
       end
     end
     
+    # DELETE /products/:id
     def destroy
       @product.destroy
       head :no_content
@@ -35,6 +37,7 @@ module Api
 
     private
 
+    # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
     rescue ActiveRecord::RecordNotFound
