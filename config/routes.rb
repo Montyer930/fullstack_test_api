@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   
   namespace :api do
-    resources :products, only: [:index, :create]
-  end
+    resources :products
+  end  
   
 end
