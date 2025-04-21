@@ -1,5 +1,3 @@
-Montyer930: me puedes ayudar a escribir el readme? 
-
 Workspace: Collecting workspace informationClaro, aquí tienes una versión más detallada del archivo README.md para el proyecto fullstack_test_api. Este incluye una descripción del proyecto, instrucciones de instalación, uso, y detalles sobre los endpoints:
 
 ```markdown
