@@ -20,6 +20,19 @@ module Api
       render json: @product
     end
 
+    def update
+      if @product.update(product_params)
+        render json: @product
+      else
+        render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
+      end
+    end
+    
+    def destroy
+      @product.destroy
+      head :no_content
+    end
+
     private
 
     def set_product
