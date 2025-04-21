@@ -20,15 +20,15 @@ El backend está construido con Ruby on Rails y proporciona una API para gestion
 
 - Iniciar el servidor:
   ```bash
-  bin/rails server
+  rails server
   ```
 - Ejecutar migraciones:
   ```bash
-  bin/rails db:migrate
+  rails db:migrate
   ```
 - Sembrar la base de datos:
   ```bash
-  bin/rails db:seed
+  rails db:seed
   ```
 
 ## Instalación de Ruby y sus dependencias
@@ -114,4 +114,3 @@ El proyecto utiliza variables de entorno para configurar aspectos sensibles como
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
->>>>>>> cbcd5dbd9d74e571cc57aaf34b79dc0ddd85e82e
