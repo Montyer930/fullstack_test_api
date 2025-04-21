@@ -7,4 +7,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  namespace :api do
+    post "login", to: "sessions#create"
+  end
+  
+  namespace :api do
+    resources :products, only: [:index, :create]
+  end
+  
 end
