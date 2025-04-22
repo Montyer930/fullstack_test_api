@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
+  
+  # Ruta del login (fuera del namespace)
+  post "login", to: "api/sessions#create"
 
-  namespace :api do
-    post "login", to: "sessions#create"
-    resources :products
-  end
+  # Rutas RESTful de products (fuera del namespace)
+  resources :products, controller: 'api/products', only: [:index, :show, :create, :update, :destroy]
 end
