@@ -74,43 +74,56 @@ Para ejecutar el backend de este proyecto, es necesario instalar Ruby y sus depe
      bundle install
      ```
 
-## Frontend
 
-El frontend está desarrollado con Angular y proporciona una interfaz de usuario para interactuar con la API del backend. La estructura del frontend incluye:
+## 🔧 Tecnologías
 
-- **Componentes**: Elementos reutilizables de la interfaz de usuario.
-  - `app.component.ts`: Componente principal de la aplicación.
-- **Rutas**: Configuración de rutas para la navegación de la aplicación.
-- **Estilos**: Archivos SCSS para la personalización de estilos.
+- Ruby on Rails 8
+- PostgreSQL (base alojada en [Neon](https://neon.tech))
+- Autenticación con JWT
+- Railway (para despliegue)
 
-### Comandos útiles
+## 🔐 Autenticación
 
-- Instalar dependencias:
-  ```bash
-  npm install
-  ```
-- Iniciar el servidor de desarrollo:
-  ```bash
-  ng serve
-  ```
-- Construir la aplicación para producción:
-  ```bash
-  ng build --prod
-  ```
+- Sistema de login con tokens JWT.
+- Token requerido en el header `Authorization` para consumir endpoints protegidos.
+- Validación de permisos y autenticación con middleware (`before_action`).
 
-## Configuración del entorno
+## 🗃️ Estructura de la base de datos
 
-### Variables de entorno
+- **Departamentos** (seed inicial desde JSON)
+- **Ciudades** → relacionan con departamentos
+- **Compañías** → relacionan con ciudad, productos y usuarios
+- **Productos** → nombre, categoría, precio
+- **Usuarios** → nombre, cargo, salario, correo, asociados a compañía
 
-El proyecto utiliza variables de entorno para configurar aspectos sensibles como claves API y configuraciones de base de datos. Asegúrate de configurar el archivo `config/master.key` para el backend y las variables necesarias en el entorno del frontend.
+📎 El esquema fue creado manualmente mediante `psql` y cargado con scripts SQL (`fullstack_dump.sql`).
 
-## Contribución
+## 📦 Endpoints
 
-1. Haz un fork del repositorio.
-2. Crea una rama para tu funcionalidad o corrección de errores.
-3. Realiza tus cambios y escribe pruebas si es necesario.
-4. Envía un pull request describiendo tus cambios.
+| Método | Ruta                             | Descripción                        |
+|--------|----------------------------------|------------------------------------|
+| POST   | `/login`                         | Inicia sesión y retorna un token   |
+| GET    | `/productos/compania/:id`        | Lista productos por compañía       |
+| GET    | `/usuarios/compania/:id`         | Lista usuarios por compañía        |
+| POST   | `/productos`                     | Crea un producto (auth)            |
+| POST   | `/usuarios`                      | Crea un usuario (auth)             |
 
-## Licencia
+## 📌 Variables de entorno
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
+Configurar `.env` o variables en Railway:
+
+```env
+DATABASE_URL=postgresql://<user>:<pass>@<host>/<db>?sslmode=require
+SECRET_KEY_BASE=clave_de_rails
+```
+# 🚀 Producción
+API: https://fullstacktestapi-production.up.railway.app
+
+DB: NeonDB (link entregado al evaluador)
+
+# ▶️ Cómo levantar local
+```bash
+bundle install
+rails db:setup
+rails s
+```
