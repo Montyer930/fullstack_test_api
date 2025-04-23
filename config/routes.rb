@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   # Ruta del login (fuera del namespace)
   post "login", to: "api/sessions#create"
 
+
+  root to: proc { [200, {}, ['API funcionando 🚀']] }
+  
+ 
   # Rutas RESTful de products (fuera del namespace)
   resources :products, controller: 'api/products', only: [:index, :show, :create, :update, :destroy]
 
