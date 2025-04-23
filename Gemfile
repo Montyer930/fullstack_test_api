@@ -47,5 +47,5 @@ group :development, :test do
 
   gem 'bcrypt' # para manejo de contraseñas
   gem 'jwt'    # para autenticación con tokens
-  gem 'rack-cors' # para permitir peticiones desde el frontend
+  gem 'rack-cors', require: 'rack/cors' # para permitir peticiones desde el frontend
 end
