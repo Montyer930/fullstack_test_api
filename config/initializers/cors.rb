@@ -6,12 +6,12 @@
 # Read more: https://github.com/cyu/rack-cors
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
-    allow do
-      origins 'localhost:4200', '127.0.0.1:4200' # Añade ambos por precaución
-      resource '*', 
-        headers: :any,
-        methods: [:get, :post, :put, :patch, :delete, :options, :head],
-        expose: ['Authorization'] # Esto expone la cabecera Authorization al frontend si la necesitas
-    end
+  allow do
+    origins '*'
+    resource '*',
+      headers: :any,
+      methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
+end
+
   
