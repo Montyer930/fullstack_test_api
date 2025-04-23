@@ -21,12 +21,14 @@ default: &default
 development:
   adapter: postgresql
   encoding: unicode
-  database: prueba_fullstack
-  username: yerson
-  password: 20221678            # dejalo vacío si no tenés clave, si sí tenés, ponela
-  host: localhost
+  host: ep-tight-heart-a8j596p3-pooler.eastus2.azure.neon.tech
   port: 5432
+  database: neondb
+  username: neondb_owner
+  password: npg_YsuFW7E3jdtO
   pool: 5
+  sslmode: require
+  schema_search_path: "public"
 
 
 test:
