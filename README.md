@@ -2,29 +2,6 @@
 
 Este proyecto es una aplicación fullstack que consta de un backend desarrollado en Ruby on Rails y un frontend desarrollado en Angular. A continuación, se describen las características principales de cada parte del proyecto.
 
-## 🔧 Tecnologías
-
-- Ruby on Rails 8
-- PostgreSQL (base alojada en [Neon](https://neon.tech))
-- Autenticación con JWT
-- Railway (para despliegue)
-
-## 🔐 Autenticación
-
-- Sistema de login con tokens JWT.
-- Token requerido en el header `Authorization` para consumir endpoints protegidos.
-- Validación de permisos y autenticación con middleware (`before_action`).
-
-## 🗃️ Estructura de la base de datos
-
-- **Departamentos** (seed inicial desde JSON)
-- **Ciudades** → relacionan con departamentos
-- **Compañías** → relacionan con ciudad, productos y usuarios
-- **Productos** → nombre, categoría, precio
-- **Usuarios** → nombre, cargo, salario, correo, asociados a compañía
-
-📎 El esquema fue creado manualmente mediante `psql` y cargado con scripts SQL (`fullstack_dump.sql`).
-
 ## Backend
 
 El backend está construido con Ruby on Rails y proporciona una API para gestionar productos y usuarios. La estructura del backend incluye:
@@ -98,7 +75,28 @@ Para ejecutar el backend de este proyecto, es necesario instalar Ruby y sus depe
      ```
 
 
+## 🔧 Tecnologías
 
+- Ruby on Rails 8
+- PostgreSQL (base alojada en [Neon](https://neon.tech))
+- Autenticación con JWT
+- Railway (para despliegue)
+
+## 🔐 Autenticación
+
+- Sistema de login con tokens JWT.
+- Token requerido en el header `Authorization` para consumir endpoints protegidos.
+- Validación de permisos y autenticación con middleware (`before_action`).
+
+## 🗃️ Estructura de la base de datos
+
+- **Departamentos** (seed inicial desde JSON)
+- **Ciudades** → relacionan con departamentos
+- **Compañías** → relacionan con ciudad, productos y usuarios
+- **Productos** → nombre, categoría, precio
+- **Usuarios** → nombre, cargo, salario, correo, asociados a compañía
+
+📎 El esquema fue creado manualmente mediante `psql` y cargado con scripts SQL (`fullstack_dump.sql`).
 
 ## 📦 Endpoints
 
