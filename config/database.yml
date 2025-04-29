@@ -21,12 +21,14 @@ default: &default
 development:
   adapter: postgresql
   encoding: unicode
-  database: prueba_fullstack
-  username: yerson
-  password: 20221678            # dejalo vacío si no tenés clave, si sí tenés, ponela
-  host: localhost
+  host: ep-tight-heart-a8j596p3-pooler.eastus2.azure.neon.tech
   port: 5432
+  database: neondb
+  username: neondb_owner
+  password: npg_YsuFW7E3jdtO
   pool: 5
+  sslmode: require
+  schema_search_path: "public"
 
 
 test:
@@ -34,20 +36,5 @@ test:
   database: fullstack_test_api_test
 
 production:
-  primary: &primary_production
-    <<: *default
-    database: fullstack_test_api_production
-    username: fullstack_test_api
-    password: <%= ENV["FULLSTACK_TEST_API_DATABASE_PASSWORD"] %>
-  cache:
-    <<: *primary_production
-    database: fullstack_test_api_production_cache
-    migrations_paths: db/cache_migrate
-  queue:
-    <<: *primary_production
-    database: fullstack_test_api_production_queue
-    migrations_paths: db/queue_migrate
-  cable:
-    <<: *primary_production
-    database: fullstack_test_api_production_cable
-    migrations_paths: db/cable_migrate
+  url: <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
